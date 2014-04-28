@@ -71,6 +71,8 @@ class FileReader
             $lineNum++;
             $l = str_replace("\n", "", $line_str);
             $line = trim($l);
+            if ($this->isComment($line))
+                continue;
             if ($this->getNamespace($line, $lineNum))
                 continue;
             if ($this->getClass($line, $lineNum))
@@ -78,6 +80,19 @@ class FileReader
             if ($this->getInterface($line, $lineNum))
                 continue;
         }
+    }
+
+    function isComment($line) {
+        $trimmed = trim($line, " \t");
+        if (strpos($trimmed, '//') === 0)
+            return true;
+        if (strpos($trimmed, '/*') === 0)
+            return true;
+        if (strpos($trimmed, '*') === 0)
+            return true;
+        if (strpos($trimmed, '#') === 0)
+            return true;
+        return false;
     }
 
     function getNamespace($line, $lineNum) {
