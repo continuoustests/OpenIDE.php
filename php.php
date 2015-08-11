@@ -163,9 +163,9 @@ class FileReader
     }
 
     function getKeyword($type, $line) {
-        $paramPos = strpos($line, "implements");
+        $paramPos = strpos($line, "extends");
         if ($paramPos === FALSE) {
-            $paramPos = strpos($line, "extends");
+            $paramPos = strpos($line, "implements");
             if ($paramPos === FALSE) {
                 $paramPos = strpos($line, "{");
                 if ($paramPos === FALSE) {
@@ -205,6 +205,10 @@ interface iTestIntefrace
 {
 }
 
-class ImplementingInterface implements iTestIntefrace
+class ExtendFrom
+{
+}
+
+class ImplementingInterface extends ExtendFrom implements iTestIntefrace
 {
 }

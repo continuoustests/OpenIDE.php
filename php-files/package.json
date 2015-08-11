@@ -4,7 +4,7 @@
 	"os": ["linux","osx","windows"],
 	"target": "language",
 	"id": "php",
-	"version": "v1.1",
+	"version": "v1.2",
 	"command": "php",
 	"name": "Php language plugin",
 	"description": "Php language plugin",
